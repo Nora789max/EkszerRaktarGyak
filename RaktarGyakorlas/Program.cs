@@ -2,6 +2,7 @@
 using RaktarGyakorlas.Modell;
 using RaktarGyakorlas.Repository;
 
+
 namespace RaktarGyakorlas
 {
     internal class Program
@@ -77,7 +78,7 @@ namespace RaktarGyakorlas
             Console.Write("Ár: ");
             decimal price = decimal.Parse(Console.ReadLine());
 
-            //Ekszerek.UjAruFelvesz(title, description, price);
+            Ekszerek.UjaruFelvesz(title, description, price);
             Console.WriteLine("✔ Áru felvéve");
         }
 

@@ -26,6 +26,12 @@ namespace RaktarGyakorlas.Repository
         }
         public void UjaruFelvesz(string title, string description, decimal price)
         {
+            var maxId = 1;
+            if (aruLista.Any())
+            {
+                maxId = aruLista.Max(x => x.Id)+1;
+            }
+            aruLista.Add(new Aru(maxId, title, description, price));
             
         }
         public List<Aru> OsszesAruLekerdez() 
