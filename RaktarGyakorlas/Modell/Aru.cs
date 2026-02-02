@@ -33,7 +33,7 @@ namespace RaktarGyakorlas.Modell
         }
         public override string? ToString()
         {
-            return $"{Id}, Név - {Title}, Leírás - {Description}, Ár - {Price}";
+            return $"{Id}, Név - {Title}, Leírás - {Description}, Ár - {Price} ft";
         }
         public int Id { get; set; }
         public string Title { get; set; } = "";
