@@ -39,10 +39,37 @@ namespace RaktarGyakorlas.Repository
             return aruLista;
         }
 
-        //public Modell.Aru? AruLekerdezIdAlapjan(int id) { }
-        //public Modell.Aru? AruLekerdezTitleAlapjan(string title) { }
-        //public bool AruTorleseIdAlapjan(int id) { }
-        //public bool AruModositasaIdAlapjan(int id, string title, string description, decimal price) { }
+        public Aru? AruLekerdezIdAlapjan(int id) 
+        {
+            return aruLista.FirstOrDefault(x => x.Id == id);
+        }
+        public Aru? AruLekerdezTitleAlapjan(string title) 
+        {
+            return aruLista.FirstOrDefault(x => x.Title.Contains(title));
+        }
+        public bool AruTorleseIdAlapjan(int id) 
+        {
+            var aru = AruLekerdezIdAlapjan(id);
+            if (aru != null)
+            {
+                aruLista.Remove(aru);
+                return true;
+            }
+            return false;
+
+        }
+        public bool AruModositasaIdAlapjan(int id, string title, string description, decimal price) 
+        {
+            var aru = AruLekerdezIdAlapjan(id);
+            if (aru != null)
+            {
+                aru.Title = title;
+                aru.Description = description;
+                aru.Price = price;
+                return true;
+            }
+            return false;
+        }
 
     }
 }

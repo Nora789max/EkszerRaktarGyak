@@ -104,7 +104,7 @@ namespace RaktarGyakorlas
             Console.Write("ID: ");
             int id = int.Parse(Console.ReadLine());
             Aru aru = null;
-            //var aru = Ekszerek.AruLekerdezIdAlapjan(id);
+            aru = Ekszerek.AruLekerdezIdAlapjan(id);
             if (aru == null)
             {
                 Console.WriteLine("Nincs ilyen áru.");
@@ -119,7 +119,7 @@ namespace RaktarGyakorlas
             Console.Write("Név részlet: ");
             string title = Console.ReadLine();
             Aru aru = null;
-            //aru = Ekszerek.AruLekerdezTitleAlapjan(title);
+            aru = Ekszerek.AruLekerdezTitleAlapjan(title);
             if (aru == null)
             {
                 Console.WriteLine("Nincs találat.");
@@ -143,7 +143,7 @@ namespace RaktarGyakorlas
             Console.Write("Új ár: ");
             decimal price = decimal.Parse(Console.ReadLine());
             bool siker = false;
-            //siker = Ekszerek.AruModositasaIdAlapjan(id, title, description, price);
+            siker = Ekszerek.AruModositasaIdAlapjan(id, title, description, price);
             Console.WriteLine(siker ? "✔ Sikeres módosítás" : "✖ Nincs ilyen áru");
         }
 
@@ -152,7 +152,7 @@ namespace RaktarGyakorlas
             Console.Write("Törlendő ID: ");
             int id = int.Parse(Console.ReadLine());
             bool siker = false;
-           //siker = Ekszerek.AruTorleseIdAlapjan(id);
+            siker = Ekszerek.AruTorleseIdAlapjan(id);
             Console.WriteLine(siker ? "✔ Áru törölve" : "✘ Nincs ilyen áru");
         }
     }
