@@ -35,5 +35,42 @@ namespace RaktarGyakorlas.Repository
             ugyfelLista.Add(new Ugyfel(maxId, name, email, phone, address));
         
         }
+        public List<Ugyfel> OsszesUgyfelLekerdez()
+        {
+            return ugyfelLista;
+        }
+
+        public Ugyfel? UgyfelLekerdezIdAlapjan(int id)
+        {
+            return ugyfelLista.FirstOrDefault(x => x.Id == id);
+        }
+        public Ugyfel? UgyfelLekerdezTitleAlapjan(string title)
+        {
+            return ugyfelLista.FirstOrDefault(x => x.Name.Contains(title));
+        }
+        public bool UgyfelTorleseIdAlapjan(int id)
+        {
+            var ugyfel = UgyfelLekerdezIdAlapjan(id);
+            if (ugyfel != null)
+            {
+                ugyfelLista.Remove(ugyfel);
+                return true;
+            }
+            return false;
+
+        }
+        public bool UgyfelModositasaIdAlapjan(int id, string name, string email, string phone, string address,)
+        {
+            var ugyfel = UgyfelLekerdezIdAlapjan(id);
+            if (ugyfel != null)
+            {
+                ugyfel.Name = name;
+                ugyfel.Email = email;
+                ugyfel.Phone = phone;
+                ugyfel.Address = address;
+                return true;
+            }
+            return false;
+        }
     }
 }
